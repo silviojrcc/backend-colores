@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import path from 'path';
 import 'dotenv/config';
 import './src/database/dbConnection.js';
+import coloresRouter from './src/routes/colores.routes.js';
 
 const app = express();
 
@@ -16,3 +17,5 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/apicolores', coloresRouter);
