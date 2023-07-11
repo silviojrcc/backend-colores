@@ -31,3 +31,16 @@ export const crearColor = async (req, res) => {
         });
     }
 }
+
+export const eliminarColor = async (req, res) => {
+    try {
+        await Color.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            message: 'El color se eliminó correctamente',
+        });
+    } catch (err) {
+        res.status(400).json({
+            message: 'No se pudo eliminar el color',
+        });
+    }
+}
