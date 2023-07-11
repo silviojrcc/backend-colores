@@ -1,14 +1,14 @@
 import { Schema, model } from "mongoose";
 
 const colorSchema = new Schema({
-    nombre: {
+    nombreColor: {
        type: String,
        required: true,
        unique: true,
        minLength: 3,
        maxLength: 25 
     },
-    codigo: {
+    codigoColor: {
         type: String,
         default: "#000"
     }

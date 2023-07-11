@@ -17,3 +17,17 @@ export const obtenerColor = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+
+export const crearColor = async (req, res) => {
+    try {
+        const nuevoColor = new Color(req.body);
+        await nuevoColor.save();
+        res.status(201).json({
+            message: 'El color se creó correctamente',
+        });
+    } catch (err) {
+        res.status(400).json({
+            message: 'Error al crear el color',
+        });
+    }
+}
