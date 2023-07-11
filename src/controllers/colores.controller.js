@@ -44,3 +44,17 @@ export const eliminarColor = async (req, res) => {
         });
     }
 }
+
+export const modificarColor = async (req, res) => {
+    try{
+        await Color.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).json({
+            message: 'El color se modificó correctamente'
+        });
+    } catch (err){
+        console.log(err);
+        res.status(400).json({
+            message: 'No se pudo modificar el color'
+        });
+    }
+}
